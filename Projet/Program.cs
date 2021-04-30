@@ -6,7 +6,7 @@ namespace Projet
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Pascal c'est le meilleur !");
+            Console.WriteLine("Florent c'est le meilleur !");
         }
     }
 }

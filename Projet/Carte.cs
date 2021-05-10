@@ -5,23 +5,22 @@ using System.IO;
 
 namespace Projet
 {
-    class Carte
+    abstract class Carte
     {
         const int longueur = 10;
         const int largeur = 10;
         int counter = 0;
-        //string[,] carte = new string[longueur, largeur];
-        int[,] transi = new int[longueur, largeur];
+        int[,] carte = new int[longueur, largeur];
         public Carte(string[] donnees)
         {
             for(int i = 0; i < largeur; i++)
             {
                 for (int y = 0; y < longueur; y++)
                 {
-                    transi[y, i] = Convert.ToInt32(donnees[counter]);
-                    counter++;
+                    this.carte[y, i] = Convert.ToInt32(donnees[counter]);
+                    this.counter++;
                 }
-            } 
+            }
             Affiche();
         }
         public void Affiche()
@@ -31,7 +30,7 @@ namespace Projet
                 for (int y = 0; y < longueur; y++)
                 {
                     //Console.Write((char)transi[y, i]);
-                    Console.Write(transi[y, i] + " ");
+                    Console.Write(carte[y, i] + " ");
                 }
                 Console.WriteLine("\n");
             }

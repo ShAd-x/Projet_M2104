@@ -9,31 +9,46 @@ namespace Projet
     {
         const int longueur = 10;
         const int largeur = 10;
-        int counter = 0;
         //string[,] carte = new string[longueur, largeur];
-        int[,] transi = new int[longueur, largeur];
-        public Carte(string[] donnees)
+        string [,] transi = {
+
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          
+
+                        };
+        public Carte(string[] args)
+            
         {
-            for(int i = 0; i < largeur; i++)
-            {
-                for (int y = 0; y < longueur; y++)
-                {
-                    transi[y, i] = Convert.ToInt32(donnees[counter]);
-                    counter++;
-                }
-            } 
-            Affiche();
-        }
-        public void Affiche()
-        {
-            for (int i = 0; i < largeur; i++)
-            {
-                for (int y = 0; y < longueur; y++)
-                {
-                    //Console.Write((char)transi[y, i]);
-                    Console.Write(transi[y, i] + " ");
+            for(int j = 0; j < largeur; j++)
+               {
+                for (int y = 0; y < longueur; y++){
+                    Console.WriteLine("{0}," , transi[j,y]);
                 }
                 Console.WriteLine("\n");
+            }
+            for(int i = 0; i < largeur; i++)
+            {
+                for (int x = 0; x < longueur; x++)
+                {
+                    for(int j = 0; j < largeur; j++)
+                    {
+                        for (int y = 0; y < longueur; y++){
+                            Console.WriteLine("{0}" , transi[j,y]);
+                        }
+                        Console.WriteLine("\n");
+                    }
+                    transi[i,x] = Console.ReadLine();
+                                  
+                }
             }
         }
     }

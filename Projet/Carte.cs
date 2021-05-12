@@ -5,14 +5,28 @@ using System.IO;
 
 namespace Projet
 {
-    abstract class Carte
+    class Carte
     {
         const int longueur = 10;
         const int largeur = 10;
-        int counter = 0;
         //string[,] carte = new string[longueur, largeur];
-        int[,] transi = new int[longueur, largeur];
-        public Carte(string[] donnees)
+        string [,] transi = {
+
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          {"X","X","X","X","X","X","X","X","X","X"},
+                          
+
+                        };
+        public Carte(string[] args)
+            
         {
             for(int j = 0; j < largeur; j++)
                {

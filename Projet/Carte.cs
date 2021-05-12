@@ -9,47 +9,39 @@ namespace Projet
     {
         const int longueur = 10;
         const int largeur = 10;
-        //string[,] carte = new string[longueur, largeur];
-        string [,] transi = {
-
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          {"X","X","X","X","X","X","X","X","X","X"},
-                          
-
-                        };
-        public Carte(string[] args)
+         string[,] lacarte = new string[longueur, largeur];
+        public Carte(string cheminfichier)
             
         {
-            for(int j = 0; j < largeur; j++)
-               {
-                for (int y = 0; y < longueur; y++){
-                    Console.WriteLine("{0}," , transi[j,y]);
-                }
-                Console.WriteLine("\n");
-            }
-            
-            for(int i = 0; i < largeur; i++)
+            for (int i = 0; i < largeur; i++)
             {
                 for (int x = 0; x < longueur; x++)
                 {
-                    for(int j = 0; j < largeur; j++)
-                    {
-                        for (int y = 1; y < longueur; y++){
-                            Console.WriteLine("{0}" , transi[j,y]);
-                        }
-                        Console.WriteLine("\n");
-                    }
-                    transi[i,x] = Console.ReadLine();
+                    Affiche();
+                    lacarte[i,x] = Console.ReadLine();
                                   
                 }
+            }
+            using (StreamWriter sw = new StreamWriter ("../../../../Phatt.clair.txt"))
+            {
+                for (int i = 0; i < largeur; i++)
+                {
+                    for (int x = 0; x < longueur; x++)
+                    {
+                        sw.WriteLine(lacarte[i, x]);
+                    }
+                }
+            }
+        }
+        public void Affiche()
+        {
+            for (int i = 0; i < longueur; i++)
+            {
+                for (int y = 0; y < largeur; y++)
+                {
+                    Console.Write(lacarte[y, i]);
+                }
+                Console.WriteLine("\n");
             }
         }
     }

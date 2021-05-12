@@ -7,6 +7,9 @@ namespace Projet
     {
         static void Main(string[] args)
         {
+
+            Carte carte = new Carte("../../../../Phatt.clair.txt");  
+            Codage c = new Codage("../../../../Phatt.clair.txt");
             //"../../../../Phatt.chiffre.txt"
         }        
     }

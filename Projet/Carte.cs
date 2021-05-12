@@ -35,13 +35,14 @@ namespace Projet
                 }
                 Console.WriteLine("\n");
             }
+            
             for(int i = 0; i < largeur; i++)
             {
                 for (int x = 0; x < longueur; x++)
                 {
                     for(int j = 0; j < largeur; j++)
                     {
-                        for (int y = 0; y < longueur; y++){
+                        for (int y = 1; y < longueur; y++){
                             Console.WriteLine("{0}" , transi[j,y]);
                         }
                         Console.WriteLine("\n");

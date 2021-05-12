@@ -7,6 +7,7 @@ namespace Projet
     {
         static void Main(string[] args)
         {
+            Codage c = new Codage("../../../../Phatt.clair.txt");
             //"../../../../Phatt.chiffre.txt"
         }        
     }

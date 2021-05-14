@@ -121,10 +121,24 @@ namespace Projet
             {
                 for (int y = 0; y < largeur; y++)
                 {
+                    if (recup[y,i] == 'M')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    else if(recup[y,i] == 'F')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     Console.Write(recup[y, i]);
+                    
                 }
                 Console.WriteLine("\n");
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

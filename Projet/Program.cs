@@ -10,6 +10,7 @@ namespace Projet
 
             Carte carte = new Carte("../../../../Phatt.clair.txt");  
             Codage c = new Codage("../../../../Phatt.clair.txt");
+            Codage s = new Codage("../../../../Scabb.clair.txt");
             //"../../../../Phatt.chiffre.txt"
         }        
     }

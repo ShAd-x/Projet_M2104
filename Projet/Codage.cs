@@ -114,6 +114,7 @@ namespace Projet
                     count++;
                 }
             }
+            Console.WriteLine("\n");
         }
         public void Affiche()
         {

@@ -9,7 +9,7 @@ namespace Projet
     {
         const int longueur = 10;
         const int largeur = 10;
-         string[,] lacarte = new string[longueur, largeur];
+        char[,] lacarte = new char[longueur, largeur];
         public Carte(string cheminfichier)
             
         {
@@ -17,12 +17,25 @@ namespace Projet
             {
                 for (int x = 0; x < longueur; x++)
                 {
-                    Affiche();
-                    lacarte[i,x] = Console.ReadLine();
-                                  
+                    Console.WriteLine("Entrez une lettre en minuscule ou F (pour une foret) / M (pour une parcelle d'eau) aux coordonnée [ {0} , {1} ]", i, x);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    string tempString = Console.ReadLine();
+                    char tempChar = tempString[0];
+                    if (char.IsLower(tempChar) || tempChar == 'F' || tempChar == 'M')
+                    {
+                        lacarte[i, x] = tempChar;
+                        Affiche();
+                    }
+                    else
+                    {
+                        x--;
+                        Console.WriteLine("Erreur: Le caractère entré ne peut être que une lettre entre a et z ou F ou M \n \n ");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    
                 }
             }
-            using (StreamWriter sw = new StreamWriter ("../../../../Phatt.clair.txt"))
+            StreamWriter sw = new StreamWriter("../../../../Phatt.clair.txt");
             {
                 for (int i = 0; i < largeur; i++)
                 {
@@ -35,14 +48,30 @@ namespace Projet
         }
         public void Affiche()
         {
-            for (int i = 0; i < longueur; i++)
+            Console.WriteLine("Voici la carte: \n");
+
+            for (int x = 0; x < longueur; x++)
             {
-                for (int y = 0; y < largeur; y++)
+                for (int j = 0; j < largeur; j++)
                 {
-                    Console.Write(lacarte[y, i]);
+                    if (lacarte[x, j] == 'M')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    else if (lacarte[x, j] == 'F')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write(lacarte[x, j]);
+
                 }
-                Console.WriteLine("\n");
+                Console.WriteLine("\n ");
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

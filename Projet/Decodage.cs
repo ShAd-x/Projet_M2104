@@ -9,7 +9,7 @@ namespace Projet
     {
         public void Decode(string cheminFichier)
         {
-            try
+           /* try
             {
                 string str;
                 StreamReader sr = new StreamReader(cheminFichier);
@@ -24,7 +24,7 @@ namespace Projet
             {
                 Console.WriteLine(e.Message);
                 return;
-            }
+            } */
         }
     }
 }

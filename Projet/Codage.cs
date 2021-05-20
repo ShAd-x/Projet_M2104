@@ -35,6 +35,7 @@ namespace Projet
                 return;
             }
             Affiche();
+            CountP();
             int count = 0;
             for (int i = 0; i < longueur; i++)
             {
@@ -116,6 +117,35 @@ namespace Projet
             }
             Console.WriteLine("\n");
         }
+        public void CountP()
+        {
+            int ascentier = 97;
+            int count = 0;
+            char asciilettre;            
+            for (int k = ascentier; k < 123; k++)
+            {                
+                for (int i = 0; i < longueur; i++)
+                {
+                    for (int y = 0; y < largeur; y++)
+                    {
+                        if (recup[i, y] == k)
+                        {
+                            count++;
+                            Console.Write("({0},{1}) ; ", i, y);
+                        }                                                              
+                    }
+                }
+                if (count != 0)
+                {
+                    asciilettre = Convert.ToChar(k);
+                    Console.WriteLine("Il y a {0} unités {1}", count, asciilettre);
+                }                
+                count = 0;
+            }
+            Console.WriteLine("\n");
+        }
+        
+
         public void Affiche()
         {
             for (int i = 0; i < longueur; i++)

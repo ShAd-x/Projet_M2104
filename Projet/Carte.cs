@@ -58,7 +58,7 @@ namespace Projet
             EcritureClair(Console.ReadLine());
         }
         public void EcritureClair(string nomFichierEcriture) {
-            StreamWriter sw = new StreamWriter("../../../../"+nomFichierEcriture+".txt");
+            StreamWriter sw = new StreamWriter("../../../../"+nomFichierEcriture+".clair");
             for (int i = 0; i < largeur; i++)
             {
                 for (int x = 0; x < longueur; x++)

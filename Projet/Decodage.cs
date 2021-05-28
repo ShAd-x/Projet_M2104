@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Projet
 {
-    class Decodage
+    abstract class Decodage : Carte
     {
         public void Decode(string cheminFichier)
         {
@@ -25,6 +25,6 @@ namespace Projet
                 Console.WriteLine(e.Message);
                 return;
             } */
-        }
+        }  
     }
 }

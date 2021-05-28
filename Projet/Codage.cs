@@ -7,13 +7,11 @@ namespace Projet
 {
     class Codage
     {
+        int[] code = new int[100];
         const int longueur = 10;
         const int largeur = 10;
-        int[] code = new int[100];
-
-        char[,] recup = new char[largeur, longueur];
-        public Codage(string cheminFichier)
-        {
+        char[,] carte = new char[longueur, largeur];
+        public Codage(string cheminFichier) {
             try
             {
                 int y = 0;
@@ -23,7 +21,7 @@ namespace Projet
                 {
                     for(int i = 0; i < largeur ; i++)
                     {
-                        recup[i, y] = str[i];
+                        carte[i, y] = str[i];
                     }
                     y++;
                 }
@@ -34,16 +32,14 @@ namespace Projet
                 Console.WriteLine(e.Message);
                 return;
             }
-            Affiche();
-            CountP();
             int count = 0;
             for (int i = 0; i < longueur; i++)
             {
                 for (int y = 0; y < largeur; y++)
                 {
-                    char Char = recup[y, i];
+                    char Char = carte[y, i];
 
-                    /* Error out of array (logique)
+                    /*Error out of array (logique)
                      * char Nord = recup[y, i-1];
                     char Sud = recup[y, i+1];
                     char Ouest = recup[y-1, i];
@@ -59,22 +55,22 @@ namespace Projet
                     // Directions
                     // Nord
                     if (y != 0 && i != 0) {
-                        if (recup[y, i - 1] != Char)
+                        if (carte[y, i - 1] != Char)
                             code[count] += 1;
                     }
                     // Sud
                     if (y != 9 && i != 9) {
-                        if(recup[y, i + 1] != Char)
+                        if(carte[y, i + 1] != Char)
                             code[count] += 4;
                     }
                     // Ouest
                     if (y != 0 && i != 9) {
-                        if(recup[y - 1, i] != Char)
+                        if(carte[y - 1, i] != Char)
                             code[count] += 2;
                     }
                     // Est
                     if (y != 9 && i != 0) {
-                        if(recup[y + 1, i] != Char) 
+                        if(carte[y + 1, i] != Char) 
                             code[count] += 8;
                     }
 
@@ -128,7 +124,7 @@ namespace Projet
                 {
                     for (int y = 0; y < largeur; y++)
                     {
-                        if (recup[i, y] == k)
+                        if (carte[i, y] == k)
                         {
                             count++;
                             Console.Write("({0},{1}) ; ", i, y);
@@ -144,28 +140,17 @@ namespace Projet
             }
             Console.WriteLine("\n");
         }
-        
-
-        public void Affiche()
-        {
-            for (int i = 0; i < longueur; i++)
-            {
-                for (int y = 0; y < largeur; y++)
-                {
-                    if (recup[y,i] == 'M')
-                    {
+        public void Affiche() {
+            for (int x = 0; x < largeur; x++) {
+                for (int j = 0; j < longueur; j++) {
+                    if (carte[j, x] == 'M') {
                         Console.ForegroundColor = ConsoleColor.Blue;
-                    }
-                    else if(recup[y,i] == 'F')
-                    {
+                    } else if (carte[j, x] == 'F') {
                         Console.ForegroundColor = ConsoleColor.Green;
-                    }
-                    else
-                    {
+                    } else {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write(recup[y, i]);
-                    
+                    Console.Write(carte[j, x]);
                 }
                 Console.WriteLine("\n");
             }

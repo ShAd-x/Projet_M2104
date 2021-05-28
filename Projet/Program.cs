@@ -7,12 +7,16 @@ namespace Projet
     {
         static void Main(string[] args)
         {
+            Carte carte = new Carte("../../../../Scabb.clair.txt");
+            carte.AfficheClair();
+            //carte.PromptEcriture();
 
-            /*Carte carte = new Carte("../../../../Phatt.clair.txt");*/  
-            /*Codage c = new Codage("../../../../Phatt.clair.txt");*/
-            Codage s = new Codage("../../../../Scabb.clair.txt");
-            
+            /*Codage c = new Codage("../../../../Scabb.clair.txt");
+            c.CountP();
+            c.Affiche();*/
+            //Codage s = new Codage("../../../../Phatt.clair.txt");
+
             //"../../../../Phatt.chiffre.txt"
-        }        
+        }
     }
 }

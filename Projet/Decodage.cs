@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace Projet
-{
-    abstract class Decodage : Carte
-    {
-        public void Decode(string cheminFichier)
-        {
+namespace Projet {
+    class Decodage : Carte {
+        public Decodage(string cheminFichier) : base(cheminFichier) {
            /* try
             {
                 string str;

@@ -1,22 +1,18 @@
 ﻿using System;
 using System.IO;
 
-namespace Projet
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            /*Carte carte = new Carte("../../../../Scabb.clair");
-            carte.AfficheClair();*/
-            //carte.PromptEcriture();
+namespace Projet {
+    class Program {
+        static void Main(string[] args) {
 
-            Codage c = new Codage("../../../../Phatt.clair");
-            //c.CountP();
-            c.Affiche();
+            Codage Phatt = new Codage("../../../../Phatt.clair");
+            Codage Scabb = new Codage("../../../../Scabb.clair");
+
+            //Phatt.AfficheChiffre();
+            //Phatt.AfficheClair();
+            Phatt.CountParcelles();
+            //Phatt.PromptEcritureChiffre();
             //Codage s = new Codage("../../../../Phatt.clair");
-
-            //"../../../../Phatt.chiffre"
         }
     }
 }

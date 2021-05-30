@@ -16,7 +16,7 @@ namespace Projet {
                     string tempString = Console.ReadLine();
                     char tempChar = tempString[0];
                     if (char.IsLower(tempChar) || tempChar == 'F' || tempChar == 'M') {
-                        carteClair[i, x] = tempChar;
+                        this.carteClair[i, x] = tempChar;
                         AfficheClair();
                     } else {
                         x--;
@@ -34,7 +34,7 @@ namespace Projet {
                 StreamReader sr = new StreamReader(cheminFichier);
                 while ((str = sr.ReadLine()) != null) {
                     for (int i = 0; i < largeur; i++) {
-                        carteClair[i, y] = str[i];
+                        this.carteClair[i, y] = str[i];
                     }
                     y++;
                 }

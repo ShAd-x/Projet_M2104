@@ -18,7 +18,7 @@ namespace Projet
                 StreamReader sr = new StreamReader(cheminFichier);
                 while ((str = sr.ReadLine()) != null) {
                     for(int i = 0; i < largeur ; i++)
-                        carte[i, y] = str[i];
+                        this.carte[i, y] = str[i];
                     y++;
                 }
                 sr.Close();

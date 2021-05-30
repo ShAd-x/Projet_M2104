@@ -123,8 +123,9 @@ namespace Projet
             Console.WriteLine("\n");
         }
         public void EcritureChiffre(string nomFichierEcriture) {
+            StreamWriter sw = null;
             try {
-                StreamWriter sw = new StreamWriter("../../../../" + nomFichierEcriture + ".chiffre.test");
+                sw = new StreamWriter("../../../../" + nomFichierEcriture + ".chiffre.test");
                 int count = 0;
                 for (int i = 0; i < largeur; i++) {
                     for (int y = 0; y < longueur; y++) {
@@ -136,12 +137,14 @@ namespace Projet
                         count++;
                     }
                 }
-                sw.Close();
             } catch (Exception e) {
                 Console.WriteLine(e.Message);
                 return;
+            } finally {
+                if (sw != null)
+                    sw.Close();
             }
-        }
+}
         public void Affiche() {
             for (int x = 0; x < largeur; x++) {
                 for (int j = 0; j < longueur; j++) {

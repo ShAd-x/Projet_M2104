@@ -12,31 +12,23 @@ namespace Projet
         const int largeur = 10;
         char[,] carte = new char[longueur, largeur];
         public Codage(string cheminFichier) {
-            try
-            {
+            try {
                 int y = 0;
                 string str;
                 StreamReader sr = new StreamReader(cheminFichier);
-                while ((str = sr.ReadLine()) != null)
-                {
+                while ((str = sr.ReadLine()) != null) {
                     for(int i = 0; i < largeur ; i++)
-                    {
                         carte[i, y] = str[i];
-                    }
                     y++;
                 }
                 sr.Close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Console.WriteLine(e.Message);
                 return;
             }
             int count = 0;
-            for (int i = 0; i < longueur; i++)
-            {
-                for (int y = 0; y < largeur; y++)
-                {
+            for (int i = 0; i < longueur; i++) {
+                for (int y = 0; y < largeur; y++) {
                     char Char = carte[y, i];
 
                     /*Error out of array (logique)
@@ -57,58 +49,41 @@ namespace Projet
 
                     // Directions
                     // Nord
-                    if (i != 0) {
+                    if (i != 0)
                         if (carte[y, i - 1] != Char)
                             code[count] += 1;
-                    }
                     // Sud
-                    if (i != 9) {
+                    if (i != 9)
                         if(carte[y, i + 1] != Char)
                             code[count] += 4;
-                    }
                     // Ouest
-                    if (y != 0) {
+                    if (y != 0)
                         if(carte[y - 1, i] != Char)
                             code[count] += 2;
-                    }
                     // Est
-                    if (y != 9) {
+                    if (y != 9)
                         if(carte[y + 1, i] != Char) 
                             code[count] += 8;
-                    }
 
                     // Cas spéciaux
                     if (Char == 'M')
-                    {
                         code[count] += 64;
-                    }
                     if (Char == 'F')
-                    {
                         code[count] += 32;
-                    }
 
                     // Bordures
                     if (i == 0)
-                    {
                         code[count] += 1;
-                    }
                     if (i == 9)
-                    {
                         code[count] += 4;
-                    }
                     if (y == 0)
-                    {
                         code[count] += 2;
-                    }
                     if (y == 9)
-                    {
                         code[count] += 8;
-                    }
-                    if(y != 9)
-                    {
+
+                    if(y != 9) {
                         Console.Write(code[count] + ":");
-                    } else
-                    {
+                    } else {
                         Console.Write(code[count] + "|");
                     }
                     count++;
@@ -117,26 +92,20 @@ namespace Projet
             Console.WriteLine("\n");
             //PromptEcriture();
         }
-        public void CountP()
-        {
+        public void CountP() {
             int ascentier = 97;
             int count = 0;
             char asciilettre;            
-            for (int k = ascentier; k < 123; k++)
-            {                
-                for (int i = 0; i < longueur; i++)
-                {
-                    for (int y = 0; y < largeur; y++)
-                    {
-                        if (carte[i, y] == k)
-                        {
+            for (int k = ascentier; k < 123; k++) {                
+                for (int i = 0; i < longueur; i++) {
+                    for (int y = 0; y < largeur; y++) {
+                        if (carte[i, y] == k) {
                             count++;
                             Console.Write("({0},{1}) ; ", i, y);
                         }                                                              
                     }
                 }
-                if (count != 0)
-                {
+                if (count != 0) {
                     asciilettre = Convert.ToChar(k);
                     Console.WriteLine("Il y a {0} unités {1}", count, asciilettre);
                 }                
@@ -149,9 +118,8 @@ namespace Projet
             if (Console.ReadLine().Equals("oui")) {
                 Console.WriteLine("Veuillez donner le nom de fichier pour écrire la carte codée");
                 EcritureChiffre(Console.ReadLine());
-            } else {
+            } else
                 Console.WriteLine("La carte n'a pas été écrite.");
-            }
             Console.WriteLine("\n");
         }
         public void EcritureChiffre(string nomFichierEcriture) {

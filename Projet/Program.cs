@@ -7,13 +7,13 @@ namespace Projet
     {
         static void Main(string[] args)
         {
-            Carte carte = new Carte("../../../../Scabb.clair");
-            carte.AfficheClair();
+            /*Carte carte = new Carte("../../../../Scabb.clair");
+            carte.AfficheClair();*/
             //carte.PromptEcriture();
 
-            /*Codage c = new Codage("../../../../Scabb.clair");
-            c.CountP();
-            c.Affiche();*/
+            Codage c = new Codage("../../../../Phatt.clair");
+            //c.CountP();
+            c.Affiche();
             //Codage s = new Codage("../../../../Phatt.clair");
 
             //"../../../../Phatt.chiffre"

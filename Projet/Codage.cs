@@ -45,6 +45,9 @@ namespace Projet
                     char Ouest = recup[y-1, i];
                     char Est = recup[y+1, i];*/
 
+                    // i = lignes
+                    // y = colonnes
+
                     // Nord + 1
                     // Ouest + 2
                     // Sud + 4
@@ -54,22 +57,22 @@ namespace Projet
 
                     // Directions
                     // Nord
-                    if (y != 0 && i != 0) {
+                    if (i != 0) {
                         if (carte[y, i - 1] != Char)
                             code[count] += 1;
                     }
                     // Sud
-                    if (y != 9 && i != 9) {
+                    if (i != 9) {
                         if(carte[y, i + 1] != Char)
                             code[count] += 4;
                     }
                     // Ouest
-                    if (y != 0 && i != 9) {
+                    if (y != 0) {
                         if(carte[y - 1, i] != Char)
                             code[count] += 2;
                     }
                     // Est
-                    if (y != 9 && i != 0) {
+                    if (y != 9) {
                         if(carte[y + 1, i] != Char) 
                             code[count] += 8;
                     }
@@ -112,6 +115,7 @@ namespace Projet
                 }
             }
             Console.WriteLine("\n");
+            //PromptEcriture();
         }
         public void CountP()
         {
@@ -139,6 +143,36 @@ namespace Projet
                 count = 0;
             }
             Console.WriteLine("\n");
+        }
+        public void PromptEcriture() {
+            Console.WriteLine("Voulez vous écrire cette carte ? => 'oui'");
+            if (Console.ReadLine().Equals("oui")) {
+                Console.WriteLine("Veuillez donner le nom de fichier pour écrire la carte codée");
+                EcritureChiffre(Console.ReadLine());
+            } else {
+                Console.WriteLine("La carte n'a pas été écrite.");
+            }
+            Console.WriteLine("\n");
+        }
+        public void EcritureChiffre(string nomFichierEcriture) {
+            try {
+                StreamWriter sw = new StreamWriter("../../../../" + nomFichierEcriture + ".chiffre.test");
+                int count = 0;
+                for (int i = 0; i < largeur; i++) {
+                    for (int y = 0; y < longueur; y++) {
+                        if (y != 9) {
+                            sw.Write(code[count] + ":");
+                        } else {
+                            sw.Write(code[count] + "|");
+                        }
+                        count++;
+                    }
+                }
+                sw.Close();
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+                return;
+            }
         }
         public void Affiche() {
             for (int x = 0; x < largeur; x++) {

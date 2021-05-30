@@ -58,16 +58,21 @@ namespace Projet
             EcritureClair(Console.ReadLine());
         }
         public void EcritureClair(string nomFichierEcriture) {
-            StreamWriter sw = new StreamWriter("../../../../"+nomFichierEcriture+".clair");
-            for (int i = 0; i < largeur; i++)
-            {
-                for (int x = 0; x < longueur; x++)
+            try {
+                StreamWriter sw = new StreamWriter("../../../../"+nomFichierEcriture+".clair");
+                for (int i = 0; i < largeur; i++)
                 {
-                    sw.Write(carteClair[x, i]);
+                    for (int x = 0; x < longueur; x++)
+                    {
+                        sw.Write(carteClair[x, i]);
+                    }
+                    sw.WriteLine("\n");
                 }
-                sw.WriteLine("\n");
+                sw.Close();
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+                return;
             }
-            sw.Close();
         }
         public void AfficheClair() {
             Console.WriteLine("Voici la carte: \n");

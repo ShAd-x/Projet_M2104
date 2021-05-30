@@ -32,12 +32,28 @@ namespace Projet {
                 }
                 if (countNbParcelles != 0) {
                     char ASCIIChar = Convert.ToChar(ASCIICode);
-                    Console.WriteLine("Il y a {0} parcelles : {1}", countNbParcelles, ASCIIChar);
+                    Console.WriteLine("Il y a {0} parcelles {1}", countNbParcelles, ASCIIChar);
                 }
                 countNbParcelles = 0;
             }
             Console.WriteLine("Pour toutes les autres lettres il n'existe aucune parcelle dans la carte.");
             Console.WriteLine("\n");
+        }
+        public void ParcelleSize(char parcelle) {
+            int countNbParcelles = 0;
+            for (int i = 0; i < longueur; i++) {
+                for (int y = 0; y < largeur; y++) {
+                    if (carteClair[i, y] == parcelle) {
+                        countNbParcelles++;
+                    }
+                }
+            }
+            if (countNbParcelles != 0) {
+                Console.WriteLine("Taille de la parcelle {0} : {1} unités", parcelle, countNbParcelles);
+            } else {
+                Console.WriteLine("Parcelle {0} : inexistante", parcelle);
+                Console.WriteLine("Taille de la parcelle {0} : 0 unité", parcelle);
+            }
         }
         public void PromptEcritureChiffre() {
             Console.WriteLine("Voulez vous écrire cette carte ? => 'oui'");

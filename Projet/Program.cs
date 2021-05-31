@@ -11,10 +11,11 @@ namespace Projet {
             //Phatt.AfficheChiffre();
             Phatt.AfficheClair();
             //Scabb.AfficheClair();
-            Phatt.CountParcelles();
-            Phatt.ParcelleSize(Convert.ToChar("b"));
-            Phatt.ParcelleSize('h');
-            Phatt.ParcelleSize('z');
+            //Phatt.CountParcelles();
+            //Phatt.ParcelleSize(Convert.ToChar("b"));
+            //Phatt.ParcelleSize('h');
+            //Phatt.ParcelleSize('z');
+            Phatt.ParcelleBornée();
             //Phatt.PromptEcritureChiffre();
             //Codage s = new Codage("../../../../Phatt.clair");
         }

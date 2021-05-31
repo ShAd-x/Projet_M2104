@@ -55,6 +55,36 @@ namespace Projet {
                 Console.WriteLine("Taille de la parcelle {0} : 0 unité", parcelle);
             }
         }
+
+        public void ParcelleBornée()
+        {
+            int countNbParcelles = 0;
+            Console.WriteLine("Choisissez un nombre et nous afficherons toutes les parcelles supérieures à ce nombre.");
+            int nbchoisi = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Parcelles de tailles supérieures à {0} : ", nbchoisi);
+            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++)
+            {
+                for (int i = 0; i < longueur; i++)
+                {
+                    for (int y = 0; y < largeur; y++)
+                    {
+                        if (carteClair[i, y] == ASCIICode)
+                        {
+                            countNbParcelles++;              
+                        }
+                    }                    
+                }
+                char ASCIIChar = Convert.ToChar(ASCIICode);
+                if (countNbParcelles >= nbchoisi)
+                {
+                    Console.WriteLine("Parcelle {0} : {1} unités", ASCIIChar, countNbParcelles);
+                }
+                // Il faut afficher aucune parcelle qu'une seule fois sauf qu'il faut que ça s'affiche si on n'est passé dans le if précédent une seule fois
+                countNbParcelles = 0;
+            }
+
+        }
+
         public void PromptEcritureChiffre() {
             Console.WriteLine("Voulez vous écrire cette carte ? => 'oui'");
             if (Console.ReadLine().Equals("oui")) {

@@ -15,7 +15,8 @@ namespace Projet {
             //Phatt.ParcelleSize(Convert.ToChar("b"));
             //Phatt.ParcelleSize('h');
             //Phatt.ParcelleSize('z');
-            Phatt.ParcelleBornée();
+            //Phatt.ParcelleBornée();
+            Phatt.ParcelleAVG();
             //Phatt.PromptEcritureChiffre();
             //Codage s = new Codage("../../../../Phatt.clair");
         }

@@ -82,7 +82,34 @@ namespace Projet {
                 // Il faut afficher aucune parcelle qu'une seule fois sauf qu'il faut que ça s'affiche si on n'est passé dans le if précédent une seule fois
                 countNbParcelles = 0;
             }
+            Console.WriteLine("\n");
+        }
 
+        public void ParcelleAVG()
+        {
+            double nb_noparcelle = 0;
+            double count = 0;
+            double countNbParcelles = 0;
+            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++)
+            {
+                count++;
+                for (int i = 0; i < longueur; i++)
+                {
+                    for (int y = 0; y < largeur; y++)
+                    {
+                        if (carteClair[i, y] == ASCIICode)
+                        {
+                            countNbParcelles++;                            
+                        }
+                        if (countNbParcelles == 0)
+                        {
+                            nb_noparcelle++;
+                        }
+                    }
+                }                                               
+            }
+            double avg = countNbParcelles / (count - nb_noparcelle);
+            Console.WriteLine("taille moyenne des parcelles : {0}", avg.ToString("F2"));
         }
 
         public void PromptEcritureChiffre() {

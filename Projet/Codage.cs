@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Projet {
     class Codage : Carte {
-        public Codage(string cheminFichier) : base(cheminFichier) {
+        public Codage(string cheminFichier) : base(cheminFichier) { // Decodage d'une carte .clair uniquement.
             try {
                 int y = 0;
                 string str;

@@ -9,14 +9,17 @@ namespace Projet {
             Codage Scabb = new Codage("../../../../Scabb.clair");
 
             //Phatt.AfficheChiffre();
-            Phatt.AfficheClair();
+            //Phatt.AfficheClair();
             //Scabb.AfficheClair();
             //Phatt.CountParcelles();
+
             //Phatt.ParcelleSize(Convert.ToChar("b"));
             //Phatt.ParcelleSize('h');
             //Phatt.ParcelleSize('z');
-            //Phatt.ParcelleBornée();
-            Phatt.ParcelleAVG();
+            //Phatt.ParcelleSize();
+
+            Phatt.ParcelleBornee();
+            //Phatt.ParcelleAVG();
             //Phatt.PromptEcritureChiffre();
             //Codage s = new Codage("../../../../Phatt.clair");
         }

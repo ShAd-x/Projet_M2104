@@ -55,63 +55,69 @@ namespace Projet {
                 Console.WriteLine("Taille de la parcelle {0} : 0 unité", parcelle);
             }
         }
-
-        public void ParcelleBornée()
-        {
+        public void ParcelleSize() {
+            Console.WriteLine("Choisissez une lettre pour savoir sa taille.");
+            char parcelle = Convert.ToChar(Console.ReadLine());
             int countNbParcelles = 0;
+            for (int i = 0; i < longueur; i++) {
+                for (int y = 0; y < largeur; y++) {
+                    if (carteClair[i, y] == parcelle) {
+                        countNbParcelles++;
+                    }
+                }
+            }
+            if (countNbParcelles != 0){
+                Console.WriteLine("Taille de la parcelle {0} : {1} unités", parcelle, countNbParcelles);
+            } else {
+                Console.WriteLine("Parcelle {0} : inexistante", parcelle);
+                Console.WriteLine("Taille de la parcelle {0} : 0 unité", parcelle);
+            }
+        }
+        public void ParcelleBornee() {
+            int countNbParcelles = 0, countNbSupChoisi = 0;
             Console.WriteLine("Choisissez un nombre et nous afficherons toutes les parcelles supérieures à ce nombre.");
             int nbchoisi = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Parcelles de tailles supérieures à {0} : ", nbchoisi);
-            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++)
-            {
-                for (int i = 0; i < longueur; i++)
-                {
-                    for (int y = 0; y < largeur; y++)
-                    {
-                        if (carteClair[i, y] == ASCIICode)
-                        {
+            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++) {
+                for (int i = 0; i < longueur; i++) {
+                    for (int y = 0; y < largeur; y++) {
+                        if (carteClair[i, y] == ASCIICode) {
                             countNbParcelles++;              
                         }
                     }                    
                 }
                 char ASCIIChar = Convert.ToChar(ASCIICode);
-                if (countNbParcelles >= nbchoisi)
-                {
+                if (countNbParcelles >= nbchoisi) {
+                    countNbSupChoisi++;
                     Console.WriteLine("Parcelle {0} : {1} unités", ASCIIChar, countNbParcelles);
-                }
-                // Il faut afficher aucune parcelle qu'une seule fois sauf qu'il faut que ça s'affiche si on n'est passé dans le if précédent une seule fois
+                } 
                 countNbParcelles = 0;
             }
-            Console.WriteLine("\n");
+            if(countNbSupChoisi == 0) {
+                Console.WriteLine("Aucune parcelle");
+            }
+            Console.Write("\n");
         }
-
-        public void ParcelleAVG()
-        {
+        public void ParcelleAVG() {
             double nb_noparcelle = 0;
             double count = 0;
             double countNbParcelles = 0;
-            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++)
-            {
+            for (int ASCIICode = 97; ASCIICode < 123; ASCIICode++) {
                 count++;
-                for (int i = 0; i < longueur; i++)
-                {
-                    for (int y = 0; y < largeur; y++)
-                    {
-                        if (carteClair[i, y] == ASCIICode)
-                        {
+                for (int i = 0; i < longueur; i++) {
+                    for (int y = 0; y < largeur; y++) {
+                        if (carteClair[i, y] == ASCIICode) {
                             countNbParcelles++;                            
-                        }
-                        if (countNbParcelles == 0)
-                        {
+                        } 
+                        if (countNbParcelles == 0) {
                             nb_noparcelle++;
                         }
                     }
                 }                                               
             }
             double avg = countNbParcelles / (count - nb_noparcelle);
-            Console.WriteLine("taille moyenne des parcelles : {0}", avg.ToString("F2"));
+            Console.WriteLine("Taille moyenne des parcelles : {0}", avg.ToString("F2"));
         }
-
         public void PromptEcritureChiffre() {
             Console.WriteLine("Voulez vous écrire cette carte ? => 'oui'");
             if (Console.ReadLine().Equals("oui")) {

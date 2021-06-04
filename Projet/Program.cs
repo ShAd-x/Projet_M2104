@@ -8,10 +8,10 @@ namespace Projet {
             Codage Phatt = new Codage("../../../../Phatt.clair");
             Codage Scabb = new Codage("../../../../Scabb.clair");
 
-            Decodage PhattDec = new Decodage("../../../../Phatt.chiffre");
+            //Decodage PhattDec = new Decodage("../../../../Phatt.chiffre");
             Decodage ScabbDec = new Decodage("../../../../Scabb.chiffre");
 
-            PhattDec.AfficheChiffre();
+            //PhattDec.AfficheChiffre();
             ScabbDec.AfficheChiffre();
 
             ScabbDec.AfficheClair();

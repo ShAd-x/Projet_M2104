@@ -27,7 +27,7 @@ namespace Projet {
                     }
                     //Console.WriteLine("\n");
                 }
-                int ASCIICode = 97; // 97 -> a 
+                int ASCIICode = 97, maxchar = 97; // 97 -> a 
                 //int nbAscii = nbAscii;
                 for (int i = 0; i < longueur; i++) { // ON DECODE.
                     for (int x = 0; x < largeur; x++) {
@@ -54,38 +54,75 @@ namespace Projet {
                             }*/
 
                             if (decode == 1) { // N
-                                carteClair[x, i] = ASCIIChar;
-                            }
-                            if (decode == 2) { // O
-                                carteClair[x, i] = carteClair[x, i-1];
-                                //ASCIICode++;
-                            }
-                            if (decode == 3) { // N-O
-                                if(x != 0) { 
-                                    int code = carteClair[x - 1, i];
-                                    code++;
-                                    carteClair[x, i] = (char)code;
-                                    ASCIICode++;
+                                if (x != 0) {
+                                    carteClair[x, i] = carteClair[x - 1, i];
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1); 
                                 } else {
                                     carteClair[x, i] = ASCIIChar;
                                 }
                             }
+                            if (decode == 2) { // O
+                                if(i != 0) {
+                                    carteClair[x, i] = carteClair[x, i-1];
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i - 1] + 1);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }
+                            }
+                            if (decode == 3) { // N-O
+                                carteClair[x, i] = Convert.ToChar(maxchar);
+                            }
                             if (decode == 4) { // S
-                                carteClair[x, i] = ASCIIChar;
+                                if (x != 0) {
+                                    carteClair[x, i] = carteClair[x - 1, i];
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1);
+                                } else if (i != 0) {
+                                    carteClair[x, i] = carteClair[x, i-1];
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i-1] + 1);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }              
                             }
                             if (decode == 5) { // N-S
-                                carteClair[x, i] = ASCIIChar;
+                                if(x != 0) {
+                                    carteClair[x, i] = carteClair[x - 1, i];
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1);
+                                } else {
+                                    carteClair[x, i] = Convert.ToChar(maxchar);
+                                }
                             }
                             if (decode == 6) { // S-O
-                                carteClair[x, i] = carteClair[x, i-1];
+                                if(i != 0) { 
+                                    carteClair[x, i] = carteClair[x, i-1];
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i - 1] + 1);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }
                             }
-                            if (decode == 7) { // N-O-S
-                                carteClair[x, i] = ASCIIChar;
+                            if (decode == 7) { // N-O-S   
+                                if (x != 0 && i != 0) {
+                                    if (CarteCodee[x + 1, i] != 5 && CarteCodee[x + 1, i] != 3 && CarteCodee[x + 1, i] != 1 && CarteCodee[x + 1, i] != 7
+                                            && CarteCodee[x + 1, i] != 9 && CarteCodee[x + 1, i] != 11 && CarteCodee[x + 1, i] != 13) {
+                                        if (CarteCodee[x + 1, i - 1] < 32) {
+                                            carteClair[x, i] = carteClair[x + 1, i - 1];
+                                            ASCIICode = Convert.ToInt32(carteClair[x + 1, i - 1]);
+                                        } else {
+                                            carteClair[x, i] = Convert.ToChar(maxchar);
+                                        }
+                                    } else {
+                                        carteClair[x, i] = Convert.ToChar(maxchar);
+                                    }
+                                } else {
+                                    carteClair[x, i] = Convert.ToChar(maxchar);
+                                }
                             }
                             if (decode == 8) { // E
                                 if (x != 0) {
                                     carteClair[x, i] = carteClair[x - 1, i];
-                                    //ASCIICode++;
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1);
+                                } else if (i != 0) {
+                                    carteClair[x, i] = carteClair[x, i - 1];
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i - 1] + 1);
                                 } else {
                                     carteClair[x, i] = ASCIIChar;
                                 }
@@ -93,38 +130,57 @@ namespace Projet {
                             if (decode == 9) { // N-E
                                 if (x != 0) {
                                     carteClair[x, i] = carteClair[x - 1, i];
-                                    //ASCIICode++;
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i]+1);
                                 } else {
-                                    carteClair[x, i] = ASCIIChar;
+                                    carteClair[x, i] = Convert.ToChar(maxchar);
                                 }
                             }
                             if (decode == 10) { // O-E
-                                carteClair[x, i] = ASCIIChar;
+                                if(i != 0){
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i-1]);
+                                    carteClair[x, i] = Convert.ToChar(ASCIICode);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }
+                                ASCIICode++;
                             }
                             if (decode == 11) { // O-E-N
-                                carteClair[x, i] = ASCIIChar;
-                                ASCIICode++;
+                                carteClair[x, i] = Convert.ToChar(maxchar);
+                                ASCIICode = carteClair[x, i] + 1;
                             }
                             if (decode == 12) { // S-E
                                 if (x != 0) {
                                     carteClair[x, i] = carteClair[x - 1, i];
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1);
                                 } else if(i != 0){
                                     carteClair[x, i] = carteClair[x, i-1];
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i - 1] + 1);
                                 }
-                                ASCIICode++;
                             }
                             if (decode == 13) { // S-E-N
-                                carteClair[x, i] = ASCIIChar;
+                                if(x != 0) {
+                                    carteClair[x, i] = carteClair[x - 1, i];
+                                    ASCIICode = Convert.ToInt32(carteClair[x - 1, i] + 1);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }   
                             }
                             if (decode == 14) { // O-S-E
-                                carteClair[x, i] = ASCIIChar;
+                                if (i != 0) {
+                                    ASCIICode = Convert.ToInt32(carteClair[x, i - 1]);
+                                    carteClair[x, i] = Convert.ToChar(ASCIICode);
+                                } else {
+                                    carteClair[x, i] = ASCIIChar;
+                                }
                             }
                             if (decode == 15) { // FULL N-S-O-E
-                                carteClair[x, i] = ASCIIChar;
+                                carteClair[x, i] = Convert.ToChar(maxchar+1);
+                                maxchar = carteClair[x, i];
                             }
-                            
-                            // on veut le meme que celui du dessus vu que seul N reste il faudrait
-                            // donc faire ascii = i-10 (pas sur enfaite)
+
+                            if(ASCIICode > maxchar) {
+                                maxchar = ASCIICode;
+                            }
 
                             //int Nord = 1, Ouest = 2, Sud = 4, Est = 8;
                             // N-O = 3 ; N-S = 5 ; N-E = 9

@@ -13,8 +13,8 @@ namespace Projet {
         protected string cheminFichier;
 
         private string pathToEcriture = "../../../../";
-        private string chiffreExt = ".chiffre.test";
-        private string clairExt = ".clair.test";
+        private string chiffreExt = ".chiffre";
+        private string clairExt = ".clair";
 
         public Carte(string cheminFichier) {
             this.cheminFichier = cheminFichier;

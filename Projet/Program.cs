@@ -8,13 +8,14 @@ namespace Projet {
             Codage Phatt = new Codage("../../../../Phatt.clair");
             Codage Scabb = new Codage("../../../../Scabb.clair");
 
-            //Decodage PhattDec = new Decodage("../../../../Phatt.chiffre");
+            Decodage PhattDec = new Decodage("../../../../Phatt.chiffre");
             Decodage ScabbDec = new Decodage("../../../../Scabb.chiffre");
 
             //PhattDec.AfficheChiffre();
-            ScabbDec.AfficheChiffre();
+            //ScabbDec.AfficheChiffre();
 
-            ScabbDec.AfficheClair();
+            //PhattDec.AfficheClair();
+            //ScabbDec.AfficheClair();
 
             //Phatt.AfficheChiffre();
             //Phatt.AfficheClair();
@@ -28,7 +29,8 @@ namespace Projet {
 
             //Phatt.ParcelleBornee();
             //Phatt.ParcelleAVG();
-            //Phatt.PromptEcritureChiffre();
+            PhattDec.PromptEcritureClaire();
+            ScabbDec.PromptEcritureClaire();
             //Codage s = new Codage("../../../../Phatt.clair");
         }
     }

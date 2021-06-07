@@ -126,11 +126,9 @@ namespace Projet {
             } else
                 Console.WriteLine("La carte n'a pas été écrite.");
         }
-        public void PromptEcritureClaire()
-        {
+        public void PromptEcritureClaire() {
             Console.WriteLine("Voulez vous écrire cette carte ? => 'oui'");
-            if (Console.ReadLine().Equals("oui"))
-            {
+            if (Console.ReadLine().Equals("oui")) {
                 Console.WriteLine("Veuillez donner le nom de fichier pour écrire la carte claire");
                 EcritureClair(Console.ReadLine());
             }
